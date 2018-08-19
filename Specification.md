@@ -39,8 +39,9 @@ Here the `xTypeSystemDefinition` is an extension to the `TypeSystemDefinition` d
 
 ```plain
 xTypeSystemDefinition ::= xSchemaDefinition | TypeDefinition | DirectiveDefinition
-xSchemaDefinition ::= 'type' WhiteSpace+ OperationType (WhiteSpace+ Directives WhiteSpace*)? '{' WhiteSpace* xOperationDefinition* WhiteSpace* '}'
+xSchemaDefinition ::= 'type' WhiteSpace+ OperationType (WhiteSpace+ Directives)? WhiteSpace* xFieldsDefinition
 OperationType ::= 'query' | 'mutation' | 'subscription'
+xFieldsDefinition ::= '{' WhiteSpace* xOperationDefinition* WhiteSpace* '}'
 ```
 
 The `xOperationDefinition` contains the extended resolver syntax:
@@ -106,7 +107,7 @@ The following inbuilt functions are currently specified. It is *recommended* to 
 
 | Name   | Signature                                               | Description                                          |
 |--------|---------------------------------------------------------|------------------------------------------------------|
-| either | `(givenValue: T | undefined, defaultValue: T): T`       | Uses the given value or a default value.             |
+| either | `(givenValue: T?, defaultValue: T): T`                  | Uses the given value or a default value.             |
 | use    | `(value: T, cb: (val: T) => U): U`                      | Uses the first argument to feed the second argument. |
 | cq     | `(url: string, query: { [name: string]: any }): string` | Concats a query to an URL.                           |
 
