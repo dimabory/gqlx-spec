@@ -6,6 +6,10 @@ Specification and general information on the gqlx language.
 
 ## Documentation
 
+The current specification is available in the [Specification.md](Specification.md) file.
+
+For reference implementations see the other repositories in the GitHub organization.
+
 (tbd)
 
 ## Contributing
